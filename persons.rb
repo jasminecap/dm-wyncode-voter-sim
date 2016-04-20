@@ -1,4 +1,5 @@
 # Don Morehouse
+#And here we are Forking!
 require './prompters'
 module TextFormatting
   SPACE = ' '
@@ -36,7 +37,7 @@ module HashHandler
   end
 
   def update_with(options, politics_menu, key)
-    # used in the context of initialize, 
+    # used in the context of initialize,
     # not updating at user request
     person_name = get_name_from(options)
     set_name(person_name)
@@ -67,7 +68,7 @@ class Person
     my_people_name = self.class.to_s.downcase + 's'  # calculate instance varaible name
     my_people = world.instance_variable_get('@' + my_people_name)
     # check world for existence of person with same name and type
-    # fails if world.edit check not done 
+    # fails if world.edit check not done
     if (my_people.include? self) && !(world.edit)
       puts
       puts "#{@name} already exists in #{my_people_name}"
@@ -95,8 +96,8 @@ class Politician < Person
     end
     unless options.empty?
       @party = update_with(
-        options, 
-        Prompts::party_politician_menu, 
+        options,
+        Prompts::party_politician_menu,
         :party_politician_menu
       )
       @my_politics = @party
@@ -105,7 +106,7 @@ class Politician < Person
 
   def update(answers, world)
     self.party = super(
-      answers, 
+      answers,
       Prompts::update_party_politician_menu,
       :update_party_politician_menu,
       world
@@ -122,8 +123,8 @@ class Voter < Person
     end
     unless options.empty?
       @politics = update_with(
-        options, 
-        Prompts::politics_voter_menu, 
+        options,
+        Prompts::politics_voter_menu,
         :politics_voter_menu
     )
       @my_politics = @politics
@@ -132,8 +133,8 @@ class Voter < Person
 
   def update(answers, world)
     self.politics = super(
-      answers, 
-      Prompts::update_politics_voter_menu, 
+      answers,
+      Prompts::update_politics_voter_menu,
       :update_politics_voter_menu,
       world
     )
