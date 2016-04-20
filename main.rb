@@ -1,4 +1,5 @@
 # Don Morehouse
+#Thanks for letting me check out your code!! - Jasmine
 require_relative './prompters'
 require_relative './world'
 
@@ -45,5 +46,3 @@ gets
 puts CLEAR
 world = WorldUserInterface.new
 world.wait_for_answer :main_menu
-
-
